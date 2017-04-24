@@ -6,8 +6,12 @@
     <Company />
     <Product />
     <Description>microsoft.extensions.loggingt文本日志拓展</Description>
-    <RepositoryUrl>https://github.com/huanent/Huanent.Logging</RepositoryUrl>
-    <RepositoryType>github</RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+    <RepositoryType></RepositoryType>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageProjectUrl>https://github.com/huanent/Huanent.Logging</PackageProjectUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
  <ItemGroup>

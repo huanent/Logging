@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using System;
 
-namespace Logging.TextWriter
+namespace Huanent.Logging.File
 {
     public class FileWriterLoggerOptions : IOptions<FileWriterLoggerOptions>
     {

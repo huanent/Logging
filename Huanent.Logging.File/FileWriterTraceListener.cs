@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace Logging.TextWriter
+namespace Huanent.Logging.File
 {
     class FileWriterTraceListener : TextWriterTraceListener
     {
@@ -25,7 +25,7 @@ namespace Logging.TextWriter
             msgBuilder.Append(DateTime.Now.ToString("HH:mm:ss"));
             msgBuilder.AppendLine("-------------------------------------");
             msgBuilder.Append(message);
-            File.AppendAllText($"{_basePath}\\{DateTime.Now.Date.ToString("yyyMMdd")}.txt", msgBuilder.ToString());
+            System.IO.File.AppendAllText($"{_basePath}\\{DateTime.Now.Date.ToString("yyyMMdd")}.txt", msgBuilder.ToString());
         }
 
         public override void WriteLine(string message)
@@ -33,7 +33,7 @@ namespace Logging.TextWriter
             var msgBuilder = new StringBuilder();
             msgBuilder.AppendLine(message);
             msgBuilder.AppendLine();
-            File.AppendAllText($"{_basePath}\\{DateTime.Today.ToString("yyyMMdd")}.txt", msgBuilder.ToString());
+            System.IO.File.AppendAllText($"{_basePath}\\{DateTime.Today.ToString("yyyMMdd")}.txt", msgBuilder.ToString());
         }
     }
 }
