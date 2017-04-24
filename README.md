@@ -13,4 +13,4 @@ loggerFactory.AddFileLog(new FileWriterLoggerOptions
 ```
 basePath设置文件要存储的路径
 
-loglevel表示要记录的最小日子级别
+loglevel表示要记录的最小日志级别
