@@ -5,9 +5,12 @@ microsoft.extensions.logging日子组件拓展
 1.安装nuget包 Huanent.Logging.File 
 2.在setup文件Configure方添加注册
 ```
-app.UseSwaggerUI(c =>
- {
-        c.RoutePrefix = "api";
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
- });
+loggerFactory.AddFileLog(new FileWriterLoggerOptions
+{
+       BasePath = $"{env.ContentRootPath}\\log",
+       LogLevel = Loglevel.Warring
+});
 ```
+basePath设置文件要存储的路径
+
+loglevel表示要记录的最小日子级别
