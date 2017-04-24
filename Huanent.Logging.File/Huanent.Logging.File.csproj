@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <Authors>李凤焕</Authors>
+    <Company />
+    <Product />
+    <Description>microsoft.extensions.loggingt文本日志拓展</Description>
+    <RepositoryUrl>https://github.com/huanent/Huanent.Logging</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
   </PropertyGroup>
 
  <ItemGroup>
