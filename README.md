@@ -1,7 +1,7 @@
 # Huanent.Logging
 microsoft.extensions.logging日子组件拓展
 
-# Huanent.Loggin使用说明(使用此组件就无需再安装配置Huanent.Logging.File组件)
+### Huanent.Loggin使用说明(使用此组件就无需再安装配置Huanent.Logging.File组件)
 1.安装nuget包 Huanent.Logging.File 
 
 2.在setup文件ConfigureServices方添加注册
@@ -24,7 +24,7 @@ app.UseLogging();
   },
 ```
 
-# Huanent.Logging.File使用说明
+### Huanent.Logging.File使用说明
 1.安装nuget包 Huanent.Logging.File 
 
 2.在setup文件Configure方添加注册
