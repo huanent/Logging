@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huanent.Logging.File", "Huanent.Logging.File\Huanent.Logging.File.csproj", "{F335D7EC-6C5E-4C34-A2F1-168B6BA65C7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huanent.Logging", "Huanent.Logging\Huanent.Logging.csproj", "{31D32C60-F60A-4150-8BD2-E75FD17131B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F335D7EC-6C5E-4C34-A2F1-168B6BA65C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F335D7EC-6C5E-4C34-A2F1-168B6BA65C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F335D7EC-6C5E-4C34-A2F1-168B6BA65C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D32C60-F60A-4150-8BD2-E75FD17131B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D32C60-F60A-4150-8BD2-E75FD17131B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D32C60-F60A-4150-8BD2-E75FD17131B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D32C60-F60A-4150-8BD2-E75FD17131B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

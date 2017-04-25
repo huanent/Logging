@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
-    <Authors>李凤焕</Authors>
-    <Company />
+    <Authors>haunent</Authors>
+    <Company>huanent</Company>
     <Product />
-    <Description>microsoft.extensions.loggingt文本日志拓展</Description>
+    <Description>microsoft.extensions.logging文本日志拓展</Description>
     <RepositoryUrl></RepositoryUrl>
     <RepositoryType></RepositoryType>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
