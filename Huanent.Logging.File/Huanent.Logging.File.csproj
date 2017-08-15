@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <ApplicationIcon>huanent.ico</ApplicationIcon>
+    <Version>2.0.0</Version>
+    <Authors>Huanent</Authors>
+    <Company>Huanent</Company>
+    <PackageIconUrl>https://s.gravatar.com/avatar/7991b51c75f1b60cfbb6595315821c69?s=400</PackageIconUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>aspnetcore txt log extension</Description>
+    <RepositoryUrl>https://github.com/huanent/Huanent.Logging.git</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageProjectUrl>https://github.com/huanent/Huanent.Logging</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
