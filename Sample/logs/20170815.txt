@@ -1,0 +1,550 @@
+-----2017/08/15 09:28:32-----
+Information:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+User profile is available. Using 'C:\Users\huanent\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+-----End-----
+
+-----2017/08/15 09:28:32-----
+Information:Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager
+Creating key {ab52d1cb-5915-4c00-a0f0-29327c690b73} with creation date 2017-08-15 01:28:32Z, activation date 2017-08-15 01:28:32Z, and expiration date 2017-11-13 01:28:32Z.
+-----End-----
+
+-----2017/08/15 09:28:32-----
+Information:Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository
+Writing data to file 'C:\Users\huanent\AppData\Local\ASP.NET\DataProtection-Keys\key-ab52d1cb-5915-4c00-a0f0-29327c690b73.xml'.
+-----End-----
+
+-----2017/08/15 09:28:38-----
+Information:Microsoft.AspNetCore.Hosting.Internal.WebHost
+Request starting HTTP/1.1 GET http://localhost:63977/api/values  
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Information:Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker
+Executing action method Sample.Controllers.ValuesController.Get (Sample) with arguments (Microsoft.Extensions.Logging.LoggerFactory) - ModelState is Valid
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+0
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+1
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+2
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+3
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+4
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+5
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+6
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+7
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+8
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+9
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+10
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+11
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+12
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+13
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+14
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+15
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+16
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+17
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+18
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+19
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+20
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+21
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+22
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+23
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+24
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+25
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+26
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+27
+-----End-----
+
+-----2017/08/15 09:28:39-----
+Error:Sample.Controllers.ValuesController
+28
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+29
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+30
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+31
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+32
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+33
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+34
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+35
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+36
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+37
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+38
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+39
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+40
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+41
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+42
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+43
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+44
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+45
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+46
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+47
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+48
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+49
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+50
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+51
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+52
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+53
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+54
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+55
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+56
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+57
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+58
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+59
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+60
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+61
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+62
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+63
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+64
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+65
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+66
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+67
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+68
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+69
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+70
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+71
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+72
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+73
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+74
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+75
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+76
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+77
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+78
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+79
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+80
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+81
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+82
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+83
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+84
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+85
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+86
+-----End-----
+
+-----2017/08/15 09:28:40-----
+Error:Sample.Controllers.ValuesController
+87
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+88
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+89
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+90
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+91
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+92
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+93
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+94
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+95
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+96
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+97
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+98
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Error:Sample.Controllers.ValuesController
+99
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Information:Microsoft.AspNetCore.Mvc.Internal.ObjectResultExecutor
+Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Information:Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker
+Executed action Sample.Controllers.ValuesController.Get (Sample) in 2156.0334ms
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Information:Microsoft.AspNetCore.Hosting.Internal.WebHost
+Request finished in 3325.0361ms 200 application/json; charset=utf-8
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Information:Microsoft.AspNetCore.Hosting.Internal.WebHost
+Request starting HTTP/1.1 GET http://localhost:63977/favicon.ico  
+-----End-----
+
+-----2017/08/15 09:28:41-----
+Information:Microsoft.AspNetCore.Hosting.Internal.WebHost
+Request finished in 4.631ms 404 
+-----End-----
+
