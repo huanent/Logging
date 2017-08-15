@@ -24,29 +24,41 @@ namespace Microsoft.Extensions.Logging.File
             Task.Run(() =>
             {
                 CreateLogDir();
-                var list = new List<string>();
+                var logBuilder = new StringBuilder();
                 while (!CancellationToken.IsCancellationRequested)
                 {
+                    logBuilder.Clear();
                     string date = DateTime.Now.ToString("yyyyMMdd");
-                    if (_queue.TryDequeue(out string log))
-                    {
-                        try
-                        {
-                            WriteLog(date, log);
-                        }
-                        catch (DirectoryNotFoundException)
-                        {
-                            CreateLogDir();
-                            WriteLog(date, log);
-                        }
-                        catch (Exception)
-                        {
+                    int nowCount = _queue.Count;
 
-                        }
-                    }
-                    else
+                    if (nowCount == 0)
                     {
                         Thread.Sleep(100);
+                        continue;
+                    }
+
+                    int count = nowCount > 10 ? 10 : nowCount;
+
+                    for (int i = 0; i < count; i++)
+                    {
+                        _queue.TryDequeue(out string log);
+                        logBuilder.Append(log);
+                    }
+
+                    string logs = logBuilder.ToString();
+
+                    try
+                    {
+                        WriteLog(date, logs);
+                    }
+                    catch (DirectoryNotFoundException)
+                    {
+                        CreateLogDir();
+                        WriteLog(date, logs);
+                    }
+                    catch (Exception)
+                    {
+
                     }
                 }
             });

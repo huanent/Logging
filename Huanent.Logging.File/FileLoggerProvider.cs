@@ -25,6 +25,7 @@ namespace Microsoft.Extensions.Logging.File
 
         public void Dispose()
         {
+            FileLoggerWriter.Instance.CancellationToken.Cancel();
         }
     }
 }
