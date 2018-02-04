@@ -25,7 +25,7 @@ namespace Microsoft.Extensions.Logging.File
             {
                 CreateLogDir();
                 var logBuilder = new StringBuilder();
-                while (!CancellationToken.IsCancellationRequested)
+                while (!CancellationToken.IsCancellationRequested || _queue.Count > 0)
                 {
                     logBuilder.Clear();
                     string date = DateTime.Now.ToString("yyyyMMdd");
@@ -33,13 +33,13 @@ namespace Microsoft.Extensions.Logging.File
 
                     if (nowCount == 0)
                     {
-                        Thread.Sleep(100);
+                        Thread.Sleep(50);
                         continue;
                     }
 
-                    int count = nowCount > 10 ? 10 : nowCount;
+                    nowCount = nowCount > 30 ? 30 : nowCount;
 
-                    for (int i = 0; i < count; i++)
+                    for (int i = 0; i < nowCount; i++)
                     {
                         _queue.TryDequeue(out string log);
                         logBuilder.Append(log);
