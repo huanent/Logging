@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using System;
+using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.Logging.File
 {
@@ -26,6 +27,10 @@ namespace Microsoft.Extensions.Logging.File
         public void Dispose()
         {
             FileLoggerWriter.Instance.CancellationToken.Cancel();
+            while (FileLoggerWriter.Instance._queue.Count > 0)
+            {
+                Task.Delay(100).Wait();
+            }
         }
     }
 }

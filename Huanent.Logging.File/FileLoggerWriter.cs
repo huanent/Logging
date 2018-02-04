@@ -12,8 +12,8 @@ namespace Microsoft.Extensions.Logging.File
     public class FileLoggerWriter
     {
         static object _locker = new object();
-        ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
-        public CancellationTokenSource CancellationToken { get; } = new CancellationTokenSource();
+        internal ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
+        public CancellationTokenSource CancellationToken => new CancellationTokenSource();
         string _logDir = "logs";
 
 
@@ -41,7 +41,7 @@ namespace Microsoft.Extensions.Logging.File
 
                     for (int i = 0; i < nowCount; i++)
                     {
-                        _queue.TryDequeue(out string log);
+                        _queue.TryDequeue(out var log);
                         logBuilder.Append(log);
                     }
 
