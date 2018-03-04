@@ -76,17 +76,14 @@ namespace Microsoft.Extensions.Logging.File
         {
             get
             {
-                lock (_locker)
+                if (_fileLoggerWriter == null)
                 {
-                    if (_fileLoggerWriter == null)
+                    lock (_locker)
                     {
-                        lock (_locker)
-                        {
-                            _fileLoggerWriter = _fileLoggerWriter ?? new FileLoggerWriter();
-                        }
+                        _fileLoggerWriter = _fileLoggerWriter ?? new FileLoggerWriter();
                     }
-                    return _fileLoggerWriter;
                 }
+                return _fileLoggerWriter;
             }
         }
 
