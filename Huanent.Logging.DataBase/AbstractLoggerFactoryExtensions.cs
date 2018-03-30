@@ -12,7 +12,7 @@ namespace Microsoft.Extensions.Logging
         public static ILoggingBuilder AddAbstract<T>(this ILoggingBuilder builder) where T : class, ILoggerWriter
         {
             builder.Services.AddSingleton<ILoggerProvider, AbstractLoggerProvider>();
-            builder.Services.AddScoped<ILoggerWriter, T>();
+            builder.Services.AddSingleton<ILoggerWriter, T>();
             return builder;
         }
 
