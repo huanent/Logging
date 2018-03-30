@@ -20,7 +20,7 @@ namespace Sample
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureLogging(builder => builder.AddFile())
+            .ConfigureLogging(c => c.AddAbstract<MyLogWriter>())
                 .Build();
     }
 }

@@ -16,7 +16,7 @@ namespace Sample.Controllers
         {
             var logger = factory.CreateLogger<ValuesController>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
                 logger.LogError(i.ToString());
             }
