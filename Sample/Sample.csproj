@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Huanent.Logging.DataBase\Huanent.Logging.Abstract.csproj" />
+    <ProjectReference Include="..\Huanent.Logging.Abstract\Huanent.Logging.Abstract.csproj" />
     <ProjectReference Include="..\Huanent.Logging.File\Huanent.Logging.File.csproj" />
   </ItemGroup>
 

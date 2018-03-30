@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Item", "Solution I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{1FBFAFE0-160D-4F0D-871D-F50D0985C3D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huanent.Logging.Abstract", "Huanent.Logging.DataBase\Huanent.Logging.Abstract.csproj", "{052ACB63-6982-452D-AE9A-1F81BC33D9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huanent.Logging.Abstract", "Huanent.Logging.Abstract\Huanent.Logging.Abstract.csproj", "{FBC2A3AF-BA53-4249-9E7E-E76358FC51F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +28,10 @@ Global
 		{1FBFAFE0-160D-4F0D-871D-F50D0985C3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FBFAFE0-160D-4F0D-871D-F50D0985C3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FBFAFE0-160D-4F0D-871D-F50D0985C3D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{052ACB63-6982-452D-AE9A-1F81BC33D9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{052ACB63-6982-452D-AE9A-1F81BC33D9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{052ACB63-6982-452D-AE9A-1F81BC33D9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{052ACB63-6982-452D-AE9A-1F81BC33D9BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC2A3AF-BA53-4249-9E7E-E76358FC51F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC2A3AF-BA53-4249-9E7E-E76358FC51F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC2A3AF-BA53-4249-9E7E-E76358FC51F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC2A3AF-BA53-4249-9E7E-E76358FC51F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
