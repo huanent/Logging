@@ -1,5 +1,7 @@
 ﻿using Huanent.Logging.Abstract;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,13 +13,12 @@ namespace Sample
 {
     public class MyLogWriter : ILoggerWriter
     {
-        public MyLogWriter(ScopeService scopeService)
+        public MyLogWriter(IHttpContextAccessor httpContextAccessor, IServiceScopeFactory serviceScopeFactory)
         {
         }
 
         public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
         {
-            File.AppendAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt"), $"{name}  {message}");
         }
     }
 }

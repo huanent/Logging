@@ -13,24 +13,24 @@ namespace Microsoft.Extensions.Logging
         public static ILoggingBuilder AddAbstract<T>(this ILoggingBuilder builder) where T : class, ILoggerWriter
         {
             builder.Services.AddSingleton<ILoggerProvider, AbstractLoggerProvider>();
-            builder.Services.AddScoped<ILoggerWriter, T>();
+            builder.Services.AddSingleton<ILoggerWriter, T>();
             return builder;
         }
 
-        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, IHttpContextAccessor httpContextAccessor, IServiceScopeFactory serviceScopeFactory)
+        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, ILoggerWriter loggerWriter)
         {
-            return AddAbstract(factory, LogLevel.Information, httpContextAccessor, serviceScopeFactory);
+            return AddAbstract(factory, LogLevel.Information, loggerWriter);
         }
 
-        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, Func<string, LogLevel, bool> filter, IHttpContextAccessor httpContextAccessor, IServiceScopeFactory serviceScopeFactory)
+        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, Func<string, LogLevel, bool> filter, ILoggerWriter loggerWriter)
         {
-            factory.AddProvider(new AbstractLoggerProvider(filter, httpContextAccessor, serviceScopeFactory));
+            factory.AddProvider(new AbstractLoggerProvider(filter, loggerWriter));
             return factory;
         }
 
-        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, LogLevel minLevel, IHttpContextAccessor httpContextAccessor, IServiceScopeFactory serviceScopeFactory)
+        public static ILoggerFactory AddAbstract(this ILoggerFactory factory, LogLevel minLevel, ILoggerWriter loggerWriter)
         {
-            return AddAbstract(factory, (_, logLevel) => logLevel >= minLevel, httpContextAccessor, serviceScopeFactory);
+            return AddAbstract(factory, (_, logLevel) => logLevel >= minLevel, loggerWriter);
         }
     }
 }
