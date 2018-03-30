@@ -1,4 +1,5 @@
 ﻿using Huanent.Logging.Abstract;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,8 @@ namespace Sample
 {
     public class MyLogWriter : ILoggerWriter
     {
-        public void Dispose()
+        public MyLogWriter(ScopeService scopeService)
         {
-
         }
 
         public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)

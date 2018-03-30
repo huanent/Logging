@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Huanent.Logging.Abstract
 {
-    public interface ILoggerWriter : IDisposable
+    public interface ILoggerWriter
     {
         void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId);
     }
