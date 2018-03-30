@@ -1,6 +1,4 @@
 using Huanent.Logging.Abstract;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Microsoft.Extensions.Logging.Abstract
