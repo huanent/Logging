@@ -1,4 +1,4 @@
-# Microsoft.Extensions.Logging 日志组建拓展
+# Microsoft.Extensions.Logging 日志组件拓展
 - 文件文本日志
 - 自定义介质日志
 ## Microsoft.Extensions.Logging.File文件文本日志
@@ -52,6 +52,8 @@ public class MyLogWriter : ILoggerWriter
         public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
         {
           //在此处自定义日志的保存方式。可以保存到数据库，云等。。。
+          //注意！MyLogWriter对象在DI容器中是单例形式存在的！
+          //注意！请勿在MyLogWriter中进行会日志输出的操作，那可能会导致循环递归，栈溢出！
         }
     }
 ```
