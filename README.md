@@ -1,8 +1,10 @@
-## Microsoft.Extensions.Logging文件文本日志拓展
-你可通过 Install-Package Huanent.Logging.File来安装拓展，或者在nuget包浏览器搜索Huanent.Logging.File
+# Microsoft.Extensions.Logging 日志组建拓展
+- 文件文本日志
+- 自定义介质日志
+## Microsoft.Extensions.Logging.File文件文本日志
 安装配置完插件后，你的asp.net core程序会将输出的日志保存在程序根目录下的logs文件夹，并以日期划分文件名
 #### 配置
-1. 安装Huanent.Logging.File
+1. 安装Huanent.Logging.File nuget包
 
 2. 在Program.cs文件中添加
 ```
@@ -35,5 +37,53 @@
             }
 }
 ```
+步骤3可忽略，如果忽略会将所有类别日志都输出到文本文件
 
-配置完成
+## Microsoft.Extensions.Logging.Abstract 自定义介质日志
+可以通过实现ILoggerWriter来自定义日志输出保存的介质
+#### 配置
+
+1. 安装Huanent.Logging.File nuget包
+
+2. 实现ILoggerWriter
+```
+public class MyLogWriter : ILoggerWriter
+    {
+        public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
+        {
+          //在此处自定义日志的保存方式。可以保存到数据库，云等。。。
+        }
+    }
+```
+3. 在Program.cs文件中添加
+```
+ public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+   手动高亮  --> .ConfigureLogging(builder => builder.AddAbstract<MyLogWriter>()) 
+                .Build();
+```
+4. 配置appsettings.json文件,添加File节点
+```
+{
+            "Logging": {
+              "IncludeScopes": false,
+              "Debug": {
+                "LogLevel": {
+                  "Default": "Warning"
+                }
+              },
+              "Console": {
+                "LogLevel": {
+                  "Default": "Warning"
+                }
+              },
+手动高亮  -->  "Abstract": {
+手动高亮  -->    "LogLevel": {
+手动高亮  -->    "Default": "Wanring" //具体输入级别自行修改，也可添加详细的分类别输出
+手动高亮  -->    }
+手动高亮  --> }
+            }
+}
+```
+步骤4可忽略，如果忽略会将所有类别日志都输出
