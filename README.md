@@ -65,7 +65,7 @@ public class MyLogWriter : ILoggerWriter
    手动高亮  --> .ConfigureLogging(builder => builder.AddAbstract<MyLogWriter>()) 
                 .Build();
 ```
-4. 配置appsettings.json文件,添加File节点
+4. 配置appsettings.json文件,添加Abstract节点
 ```
 {
             "Logging": {
