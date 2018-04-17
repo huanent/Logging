@@ -43,7 +43,7 @@
 可以通过实现ILoggerWriter来自定义日志输出保存的介质
 #### 配置
 
-1. 安装Huanent.Logging.File nuget包
+1. 安装Huanent.Logging.Abstract nuget包
 
 2. 实现ILoggerWriter
 ```
