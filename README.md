@@ -31,7 +31,7 @@
               },
 手动高亮  -->  "File": {
 手动高亮  -->    "LogLevel": {
-手动高亮  -->    "Default": "Wanring" //具体输入级别自行修改，也可添加详细的分类别输出
+手动高亮  -->    "Default": "Warning" //具体输入级别自行修改，也可添加详细的分类别输出
 手动高亮  -->    }
 手动高亮  --> }
             }
@@ -82,7 +82,7 @@ public class MyLogWriter : ILoggerWriter
               },
 手动高亮  -->  "Abstract": {
 手动高亮  -->    "LogLevel": {
-手动高亮  -->    "Default": "Wanring" //具体输入级别自行修改，也可添加详细的分类别输出
+手动高亮  -->    "Default": "Warning" //具体输入级别自行修改，也可添加详细的分类别输出
 手动高亮  -->    }
 手动高亮  --> }
             }
