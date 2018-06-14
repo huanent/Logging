@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/huanent/Huanent.Logging.git</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageProjectUrl>https://github.com/huanent/Huanent.Logging</PackageProjectUrl>
+    <Copyright>MIT</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

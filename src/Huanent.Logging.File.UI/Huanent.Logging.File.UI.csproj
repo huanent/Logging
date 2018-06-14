@@ -3,6 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <PackageIconUrl>https://s.gravatar.com/avatar/7991b51c75f1b60cfbb6595315821c69?s=400</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/huanent/Huanent.Logging</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/huanent/Huanent.Logging.git</RepositoryUrl>
+    <Copyright>MIT</Copyright>
+    <Company>huanent</Company>
+    <Authors>huanent</Authors>
+    <Description>配合Huanent.Logging.File，零配置的在线日志查看插件</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
