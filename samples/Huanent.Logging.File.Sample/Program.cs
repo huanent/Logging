@@ -8,19 +8,18 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Sample
+namespace Huanent.Logging.File.Sample
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-            .ConfigureLogging(c => c.AddAbstract<MyLogWriter>())
-                .Build();
+                .ConfigureLogging(builder => builder.AddFile())
+                .UseStartup<Startup>();
     }
 }

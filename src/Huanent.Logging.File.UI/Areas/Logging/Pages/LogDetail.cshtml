@@ -1,0 +1,91 @@
+﻿@page "{name}"
+@using Microsoft.Extensions.Logging;
+@model LogDetailModel
+@{
+    var logLevel = new string[] {
+LogLevel.Critical.ToString(),
+LogLevel.Error.ToString(),
+LogLevel.Warning.ToString(),
+LogLevel.Information.ToString(),
+LogLevel.Debug.ToString(),
+LogLevel.Trace.ToString(),
+};
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>当天日志详情</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/js/jquery-min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <style>
+        .table {
+            width: 100%;
+        }
+
+        .log-content {
+            word-break: break-word;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".category-btn").click(function (e) {
+                $(".category-btn").removeClass("disabled");
+                e.target.classList.add("disabled");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="btn-group">
+            @foreach (var item in logLevel)
+            {
+                var disabled = item == @LogLevel.Error.ToString() ? "disabled" : "";
+
+                <a data-toggle="collapse" data-target="#@item" class="btn btn-light category-btn @disabled">@item (@Model.Logs.Count(c => c.Loglevel == item))</a>
+            }
+        </div>
+    </div>
+
+    <div id="accordion">
+        @foreach (var item in logLevel)
+        {
+            var show = item == @LogLevel.Error.ToString() ? "show" : "";
+
+            <div class='collapse @show' id="@item" data-parent="#accordion">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="log-time">时间</th>
+                            <th scope="col" class="log-category">分类</th>
+                            <th scope="col">内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var log in Model.Logs.Where(w => w.Loglevel == item))
+                        {
+                            <tr>
+                                <td class="table-info log-time">
+                                    @log.Time
+                                </td>
+                                <td class="table-primary log-category">
+                                    @log.Category
+                                </td>
+                                <td class="table-danger log-content">
+                                    @log.Content
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+
+    </div>
+
+
+</body>
+</html>

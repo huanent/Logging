@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>系统日志查询</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        a {
+            margin: 0.5rem
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">日志查询</a>
+        <form class="form-inline my-2 my-lg-0" method="get">
+            <input class="form-control mr-sm-2" type="date" asp-for="StartDate" />
+            <input class="form-control mr-sm-2" type="date" asp-for="EndDate" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查询</button>
+        </form>
+    </nav>
+
+    <div class="d-flex flex-wrap ml-auto">
+        @foreach (var item in Model.LogItems)
+        {
+            <a class="btn btn-outline-dark" href="/Logging/LogDetail/@item">@item</a>
+        }
+    </div>
+</body>
+</html>
