@@ -1,6 +1,8 @@
 # Microsoft.Extensions.Logging 日志组件拓展
 - 文件文本日志
+- 文件文本日志UI插件
 - 自定义介质日志
+
 ## Microsoft.Extensions.Logging.File文件文本日志
 安装配置完插件后，你的asp.net core程序会将输出的日志保存在程序根目录下的logs文件夹，并以日期划分文件名
 #### 配置
@@ -38,6 +40,9 @@
 }
 ```
 步骤3可忽略，如果忽略会将所有类别日志都输出到文本文件
+
+## Microsoft.Extensions.Logging.File.UI
+待编写
 
 ## Microsoft.Extensions.Logging.Abstract 自定义介质日志
 可以通过实现ILoggerWriter来自定义日志输出保存的介质
