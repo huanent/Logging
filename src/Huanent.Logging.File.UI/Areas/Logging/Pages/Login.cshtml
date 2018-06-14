@@ -11,12 +11,26 @@
         html, body, .framework {
             height: 100%
         }
+
+        .card {
+            padding: 3rem;
+            width: 25rem;
+            position: relative
+        }
+
+            .card > button {
+                margin-top: 1rem
+            }
+
+        small {
+            position: absolute;
+        }
     </style>
 </head>
 <body>
     <div class="framework d-flex justify-content-center align-items-center">
-        <form method="post">
-            <div class="form-group">
+        <form method="post" class="card">
+            <div class="form-group ">
                 <label for="pwd">@Model.Title</label>
                 <input type="password" class="form-control" asp-for="Pwd" placeholder="请输入密码">
                 <small class="form-text text-muted">@Model.Tip</small>
