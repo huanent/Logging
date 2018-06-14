@@ -31,7 +31,14 @@ namespace Huanent.Logging.File.Sample
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            var logger = loggerFactory.CreateLogger<Startup>();
+            //Task.Run(() =>
+            //{
+            //    while (true)
+            //    {
+            //        logger.LogError("safsafsaf静安寺附加赛ssssssagadfasfasdfasdfdafadfefefdafadfsdfds");
+            //    }
+            //});
             app.UseStaticFiles();
             app.UseMvc();
         }
