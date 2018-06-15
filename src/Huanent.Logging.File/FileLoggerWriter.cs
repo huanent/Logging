@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.Logging.File
         static object _locker = new object();
         internal ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
         public CancellationTokenSource CancellationToken => new CancellationTokenSource();
-        string _logDir = $"{AppDomain.CurrentDomain.BaseDirectory}logs";
+        readonly string _logDir = Path.Combine(AppContext.BaseDirectory, "logs");
 
 
         public static FileLoggerWriter _fileLoggerWriter;
@@ -66,7 +66,7 @@ namespace Microsoft.Extensions.Logging.File
 
         private void WriteLog(string date, string log)
         {
-            System.IO.File.AppendAllText($"{_logDir}\\{date}.txt", log);
+            System.IO.File.AppendAllText(Path.Combine(_logDir, $"{date}.txt"), log);
         }
 
         /// <summary>
