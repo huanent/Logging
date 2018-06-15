@@ -9,7 +9,18 @@ namespace Huanent.Logging.File.UI
 {
     public static class ConfigHelper
     {
-        readonly static string _path = Path.Combine(AppContext.BaseDirectory, "logs", "config.json");
+        readonly static string _dir = Path.Combine(AppContext.BaseDirectory, "logs");
+        readonly static string _path;
+
+        static ConfigHelper()
+        {
+            if (!Directory.Exists(_dir))
+            {
+                Directory.CreateDirectory(_dir);
+            }
+            _path = Path.Combine(_dir, "config.json");
+        }
+
         public static ConfigModel Get()
         {
             if (!System.IO.File.Exists(_path)) return null;

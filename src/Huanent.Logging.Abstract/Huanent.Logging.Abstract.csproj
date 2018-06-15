@@ -7,6 +7,8 @@
     <RepositoryUrl>https://github.com/huanent/Huanent.Logging.git</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <Version>1.2.0</Version>
+    <Company>Huanent</Company>
+    <Authors>Huanent</Authors>
   </PropertyGroup>
 
   <ItemGroup>
