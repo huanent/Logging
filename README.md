@@ -42,7 +42,25 @@
 步骤3可忽略，如果忽略会将所有类别日志都输出到文本文件
 
 ## Microsoft.Extensions.Logging.File.UI
-待编写
+1. 安装Huanent.Logging.File.UI nuget包
+2. 修改Startup.cs
+```
+ public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+手动高亮 --> services.AddLoggingFileUI();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+手动高亮 -->   app.UseStaticFiles();
+手动高亮 -->   app.UseMvc();
+        }
+    }
+```
+3. 启动网站，访问页面http://xxxxx:xx/logging 即可打开日志查看网页
 
 ## Microsoft.Extensions.Logging.Abstract 自定义介质日志
 可以通过实现ILoggerWriter来自定义日志输出保存的介质
