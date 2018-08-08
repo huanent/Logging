@@ -12,10 +12,10 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
 {
     public class LogDetailModel : PageModel
     {
+        public IEnumerable<LogModel> Logs { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string Name { get; set; }
-
-        public IEnumerable<LogModel> Logs { get; set; }
 
         public IActionResult OnGet()
         {

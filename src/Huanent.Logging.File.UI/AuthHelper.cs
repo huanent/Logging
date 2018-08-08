@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Huanent.Logging.File.UI
 {
-    public static class AuthHelper
+    internal static class AuthHelper
     {
         public static bool Check(HttpContext httpContext)
         {

@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Huanent.Logging.File.UI
 {
-    public static class ConfigHelper
+    internal static class ConfigHelper
     {
-        readonly static string _dir = Path.Combine(AppContext.BaseDirectory, "logs");
-        readonly static string _path;
+        private static readonly string _dir = Path.Combine(AppContext.BaseDirectory, "logs");
+        private static readonly string _path;
 
         static ConfigHelper()
         {
