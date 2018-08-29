@@ -12,14 +12,17 @@ namespace Huanent.Logging.File.Sample
 {
     public class Program
     {
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(builder => builder.AddFile(o =>
+                {
+                    o.Path = Path.Combine(AppContext.BaseDirectory, "data", "logs");
+                }))
+                .UseStartup<Startup>();
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging(builder => builder.AddFile())
-                .UseStartup<Startup>();
     }
 }

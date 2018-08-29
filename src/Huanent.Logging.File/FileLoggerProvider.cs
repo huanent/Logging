@@ -1,3 +1,4 @@
+using Huanent.Logging.File;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
@@ -7,27 +8,24 @@ namespace Microsoft.Extensions.Logging.File
     [ProviderAlias("File")]
     public class FileLoggerProvider : ILoggerProvider
     {
-        private readonly Func<string, LogLevel, bool> _filter;
+        private readonly FileLoggerWriter _fileLoggerWriter;
+        private readonly FileLoggerOptions _options = new FileLoggerOptions();
 
-        public FileLoggerProvider()
+        public FileLoggerProvider(FileLoggerOptions options)
         {
-            _filter = null;
-        }
-
-        public FileLoggerProvider(Func<string, LogLevel, bool> filter)
-        {
-            _filter = filter;
+            _options = options;
+            _fileLoggerWriter = new FileLoggerWriter(options);
         }
 
         public ILogger CreateLogger(string name)
         {
-            return new FileLogger(name, _filter);
+            return new FileLogger(name, _fileLoggerWriter);
         }
 
         public void Dispose()
         {
-            FileLoggerWriter.Instance.CancellationToken.Cancel();
-            while (FileLoggerWriter.Instance._queue.Count > 0)
+            _fileLoggerWriter.CancellationToken.Cancel();
+            while (!_fileLoggerWriter.LogWriteDone)
             {
                 Task.Delay(100).Wait();
             }

@@ -1,24 +1,20 @@
-
+using Huanent.Logging.File;
 using System;
 
 namespace Microsoft.Extensions.Logging.File
 {
-
     public partial class FileLogger : ILogger
     {
+        private readonly FileLoggerWriter _fileLoggerWriter;
         private readonly Func<string, LogLevel, bool> _filter;
         private readonly string _name;
 
-        public FileLogger(string name) : this(name, filter: null)
-        {
-        }
-
-        public FileLogger(string name, Func<string, LogLevel, bool> filter)
+        public FileLogger(string name, FileLoggerWriter fileLoggerWriter)
         {
             _name = string.IsNullOrEmpty(name) ? nameof(FileLogger) : name;
-            _filter = filter ?? ((category, logLevel) => true);
+            _filter = fileLoggerWriter.Options.Filter ?? ((category, logLevel) => true);
+            _fileLoggerWriter = fileLoggerWriter;
         }
-
 
         public IDisposable BeginScope<TState>(TState state)
         {
@@ -42,14 +38,14 @@ namespace Microsoft.Extensions.Logging.File
                 throw new ArgumentNullException(nameof(formatter));
             }
 
-            var message = formatter(state, exception);
+            string message = formatter(state, exception);
 
             if (string.IsNullOrEmpty(message))
             {
                 return;
             }
 
-            FileLoggerWriter.Instance.WriteLine(logLevel, message, _name, exception);
+            _fileLoggerWriter.WriteLine(logLevel, message, _name, exception);
         }
 
         private class NoopDisposable : IDisposable

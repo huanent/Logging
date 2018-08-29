@@ -1,4 +1,4 @@
-
+using Huanent.Logging.File;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,15 +11,37 @@ namespace Microsoft.Extensions.Logging.File
 {
     public class FileLoggerWriter
     {
-        static object _locker = new object();
-        internal ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
+        private readonly string _logDir;
+        private ConcurrentQueue<string> _queue = new ConcurrentQueue<string>();
+
+        public FileLoggerWriter(FileLoggerOptions options)
+        {
+            Options = options;
+            _logDir = Options.Path ?? Path.Combine(AppContext.BaseDirectory, "logs");
+            BeginAsyncQueueWriter();
+        }
+
         public CancellationTokenSource CancellationToken => new CancellationTokenSource();
-        readonly string _logDir = Path.Combine(AppContext.BaseDirectory, "logs");
 
+        public bool LogWriteDone => _queue.Count == 0;
 
-        public static FileLoggerWriter _fileLoggerWriter;
+        public FileLoggerOptions Options { get; }
 
-        public FileLoggerWriter()
+        public void WriteLine(LogLevel level, string message, string name, Exception exception)
+        {
+            var logBuilder = new StringBuilder();
+
+            logBuilder.AppendLine($"-----{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}-----");
+            logBuilder.AppendLine($"{level.ToString()}:{name}");
+            logBuilder.AppendLine(message);
+            if (exception != null) logBuilder.AppendLine(exception.ToString());
+            logBuilder.AppendLine("-----End-----");
+            logBuilder.AppendLine();
+
+            _queue.Enqueue(logBuilder.ToString());
+        }
+
+        private void BeginAsyncQueueWriter()
         {
             Task.Run(() =>
             {
@@ -41,7 +63,7 @@ namespace Microsoft.Extensions.Logging.File
 
                     for (int i = 0; i < nowCount; i++)
                     {
-                        _queue.TryDequeue(out var log);
+                        _queue.TryDequeue(out string log);
                         logBuilder.Append(log);
                     }
 
@@ -58,52 +80,19 @@ namespace Microsoft.Extensions.Logging.File
                     }
                     catch (Exception)
                     {
-
                     }
                 }
             });
         }
 
+        private void CreateLogDir()
+        {
+            if (!Directory.Exists(_logDir)) Directory.CreateDirectory(_logDir);
+        }
+
         private void WriteLog(string date, string log)
         {
             System.IO.File.AppendAllText(Path.Combine(_logDir, $"{date}.txt"), log);
-        }
-
-        /// <summary>
-        /// µ¥ÀýFileLoggerWriter
-        /// </summary>
-        public static FileLoggerWriter Instance
-        {
-            get
-            {
-                if (_fileLoggerWriter == null)
-                {
-                    lock (_locker)
-                    {
-                        _fileLoggerWriter = _fileLoggerWriter ?? new FileLoggerWriter();
-                    }
-                }
-                return _fileLoggerWriter;
-            }
-        }
-
-        public void WriteLine(LogLevel level, string message, string name, Exception exception)
-        {
-            var logBuilder = new StringBuilder();
-
-            logBuilder.AppendLine($"-----{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}-----");
-            logBuilder.AppendLine($"{level.ToString()}:{name}");
-            logBuilder.AppendLine(message);
-            if (exception != null) logBuilder.AppendLine(exception.ToString());
-            logBuilder.AppendLine("-----End-----");
-            logBuilder.AppendLine();
-
-            _queue.Enqueue(logBuilder.ToString());
-        }
-
-        void CreateLogDir()
-        {
-            if (!Directory.Exists(_logDir)) Directory.CreateDirectory(_logDir);
         }
     }
 }

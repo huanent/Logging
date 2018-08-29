@@ -16,16 +16,18 @@ namespace Huanent.Logging.File.Sample
 {
     public class Startup
     {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            app.UseStaticFiles();
+            var logger = loggerFactory.CreateLogger<Startup>();
+            logger.LogWarning("写入警告");
+            app.UseMvc();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLoggingFileUI();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        }
-
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
-            app.UseStaticFiles();
-            app.UseMvc();
         }
     }
 }
