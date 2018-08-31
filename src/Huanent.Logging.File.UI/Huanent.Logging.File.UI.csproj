@@ -11,7 +11,7 @@
     <Authors>Huanent</Authors>
     <Description>配合Huanent.Logging.File，零配置的在线日志查看插件</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
