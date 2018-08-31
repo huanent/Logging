@@ -15,7 +15,7 @@ namespace Huanent.Logging.File.UI
         {
             _options = options;
 
-            if (options.Path != null) _dir = options.Path;
+            _dir = _dir = options.Path ?? Path.Combine(AppContext.BaseDirectory, "logs");
 
             if (!Directory.Exists(_dir))
             {
