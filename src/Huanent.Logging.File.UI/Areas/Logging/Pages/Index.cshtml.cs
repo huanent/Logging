@@ -13,16 +13,16 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
     public class IndexModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
-        public DateTime StartDate { get; set; } = DateTime.Today.AddDays(-30);
-
-        [BindProperty(SupportsGet = true)]
         public DateTime EndDate { get; set; } = DateTime.Today;
 
         public IEnumerable<int> LogItems { get; set; }
 
-        public IActionResult OnGet()
+        [BindProperty(SupportsGet = true)]
+        public DateTime StartDate { get; set; } = DateTime.Today.AddDays(-30);
+
+        public IActionResult OnGet([FromServices] AuthService authService)
         {
-            bool login = AuthHelper.Check(HttpContext);
+            bool login = authService.Check(HttpContext);
             if (!login) return RedirectToPage("Login");
 
             string logsPath = Path.Combine(AppContext.BaseDirectory, "logs");
@@ -40,6 +40,5 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
 
             return Page();
         }
-
     }
 }

@@ -17,9 +17,9 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
         [BindProperty(SupportsGet = true)]
         public string Name { get; set; }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet([FromServices] AuthService authService)
         {
-            bool login = AuthHelper.Check(HttpContext);
+            bool login = authService.Check(HttpContext);
             if (!login) return RedirectToPage("Login");
 
             string filePath = Path.Combine(AppContext.BaseDirectory, "logs", $"{Name}.txt");

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Huanent.Logging.File.UI.Models
 {
-    internal class ConfigModel
+    public class ConfigModel
     {
         /// <summary>
         /// 加密密钥

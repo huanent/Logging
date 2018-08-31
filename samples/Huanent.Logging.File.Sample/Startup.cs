@@ -26,7 +26,11 @@ namespace Huanent.Logging.File.Sample
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLoggingFileUI();
+            services.AddLoggingFileUI(options =>
+            {
+                options.Path = Path.Combine(AppContext.BaseDirectory, "data", "logs");
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
     }

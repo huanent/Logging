@@ -11,27 +11,34 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
 {
     public class LoginModel : PageModel
     {
-        [BindProperty]
-        public string Pwd { get; set; }
+        private readonly ConfigService _configService;
 
-        public string Title { get; set; } = "日志查询登录";
+        public LoginModel(ConfigService configService)
+        {
+            _configService = configService;
+        }
 
         public string Btn { get; set; } = "登录";
 
+        [BindProperty]
+        public string Pwd { get; set; }
+
         public string Tip { get; set; } = string.Empty;
 
+        public string Title { get; set; } = "日志查询登录";
 
         public void OnGet()
         {
-            if (ConfigHelper.Get() == null)
+            if (_configService.Get() == null)
             {
                 Title = "请输入初始密码";
                 Btn = "保存";
             }
         }
+
         public IActionResult OnPost()
         {
-            var config = ConfigHelper.Get();
+            var config = _configService.Get();
             if (config != null)
             {
                 if (config.CanLoginDate > DateTime.Now)
@@ -50,7 +57,7 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
                         config.CanLoginDate = DateTime.Now.AddMinutes(5);
                         Tip = "密码错误超过3次，锁定5分钟";
                     }
-                    ConfigHelper.Save(config);
+                    _configService.Save(config);
                     return Page();
                 }
             }
@@ -65,7 +72,7 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
                     Pwd = Pwd,
                     AESKey = rijndaelManaged.Key
                 };
-                ConfigHelper.Save(config);
+                _configService.Save(config);
             }
             string token = AES256Helper.Encrypt(DateTime.Now.AddMinutes(1).ToString(), config.AESKey);
             Response.Cookies.Append(Constants.CookieName, token);

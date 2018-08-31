@@ -13,6 +13,7 @@ namespace Huanent.Logging.File.UI
         {
             Environment = environment;
         }
+
         public IHostingEnvironment Environment { get; }
 
         public void PostConfigure(string name, StaticFileOptions options)

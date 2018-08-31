@@ -5,14 +5,21 @@ using System.Text;
 
 namespace Huanent.Logging.File.UI
 {
-    internal static class AuthHelper
+    public class AuthService
     {
-        public static bool Check(HttpContext httpContext)
+        private readonly ConfigService _configService;
+
+        public AuthService(ConfigService configService)
+        {
+            _configService = configService;
+        }
+
+        public bool Check(HttpContext httpContext)
         {
             bool haveCookie = httpContext.Request.Cookies.TryGetValue(Constants.CookieName, out string enDate);
             if (!haveCookie) return false;
 
-            var config = ConfigHelper.Get();
+            var config = _configService.Get();
             if (config == null) return false;
 
             string dateStr = AES256Helper.Decrypt(enDate, config.AESKey);

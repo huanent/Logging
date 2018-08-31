@@ -12,7 +12,6 @@ namespace Microsoft.Extensions.Logging
             var option = new FileLoggerOptions();
             options?.Invoke(option);
             builder.Services.AddSingleton(option);
-            builder.Services.AddSingleton<FileLoggerWriter>();
             builder.Services.AddSingleton<ILoggerProvider, FileLoggerProvider>();
             return builder;
         }
