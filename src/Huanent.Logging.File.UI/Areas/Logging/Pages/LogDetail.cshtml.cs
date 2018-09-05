@@ -17,12 +17,12 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
         [BindProperty(SupportsGet = true)]
         public string Name { get; set; }
 
-        public IActionResult OnGet([FromServices] AuthService authService)
+        public IActionResult OnGet([FromServices] AuthService authService, [FromServices] ConfigService configService)
         {
             bool login = authService.Check(HttpContext);
             if (!login) return RedirectToPage("Login");
 
-            string filePath = Path.Combine(AppContext.BaseDirectory, "logs", $"{Name}.txt");
+            string filePath = Path.Combine(configService.LogDir, $"{Name}.txt");
             string text;
             using (var logFile = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Read, FileShare.ReadWrite))
             {

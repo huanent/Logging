@@ -7,7 +7,6 @@ namespace Huanent.Logging.File.UI
 {
     public class ConfigService
     {
-        private readonly string _dir;
         private readonly LoggingFileUIOptions _options;
         private readonly string _path;
 
@@ -15,15 +14,17 @@ namespace Huanent.Logging.File.UI
         {
             _options = options;
 
-            _dir = _dir = options.Path ?? Path.Combine(AppContext.BaseDirectory, "logs");
+            LogDir = LogDir = options.Path ?? Path.Combine(AppContext.BaseDirectory, "logs");
 
-            if (!Directory.Exists(_dir))
+            if (!Directory.Exists(LogDir))
             {
-                Directory.CreateDirectory(_dir);
+                Directory.CreateDirectory(LogDir);
             }
 
-            _path = Path.Combine(_dir, "config.json");
+            _path = Path.Combine(LogDir, "config.json");
         }
+
+        public string LogDir { get; private set; }
 
         public ConfigModel Get()
         {

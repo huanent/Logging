@@ -20,13 +20,12 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
         [BindProperty(SupportsGet = true)]
         public DateTime StartDate { get; set; } = DateTime.Today.AddDays(-30);
 
-        public IActionResult OnGet([FromServices] AuthService authService)
+        public IActionResult OnGet([FromServices] AuthService authService, [FromServices] ConfigService configService)
         {
             bool login = authService.Check(HttpContext);
             if (!login) return RedirectToPage("Login");
 
-            string logsPath = Path.Combine(AppContext.BaseDirectory, "logs");
-            string[] files = Directory.GetFiles(logsPath);
+            string[] files = Directory.GetFiles(configService.LogDir);
             files = files.Select(s => Path.GetFileNameWithoutExtension(s)).ToArray();
             int startDate = StartDate.Year * 10000 + StartDate.Month * 100 + StartDate.Day;
             int endDate = EndDate.Year * 10000 + EndDate.Month * 100 + EndDate.Day;
