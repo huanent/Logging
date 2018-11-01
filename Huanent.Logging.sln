@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huanent.Logging.File.Sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huanent.Logging.File.UI", "src\Huanent.Logging.File.UI\Huanent.Logging.File.UI.csproj", "{1D24473C-A336-4897-9CEA-C8077DC3B855}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huanent.Logging.Sqlite", "src\Huanent.Logging.Sqlite\Huanent.Logging.Sqlite.csproj", "{CC29576E-3DBA-4710-8BC2-65283A40564A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{1D24473C-A336-4897-9CEA-C8077DC3B855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D24473C-A336-4897-9CEA-C8077DC3B855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D24473C-A336-4897-9CEA-C8077DC3B855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC29576E-3DBA-4710-8BC2-65283A40564A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC29576E-3DBA-4710-8BC2-65283A40564A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC29576E-3DBA-4710-8BC2-65283A40564A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC29576E-3DBA-4710-8BC2-65283A40564A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{B50DFD4D-7504-4A71-A183-C55FF910134A} = {3316769C-36DE-46AB-846A-B021A3BCF1DE}
 		{97FC6A73-3A5A-4DF7-92F5-844F932A22AF} = {4D32A2F3-354F-48CF-9D1C-A4BA94BA462F}
 		{1D24473C-A336-4897-9CEA-C8077DC3B855} = {3316769C-36DE-46AB-846A-B021A3BCF1DE}
+		{CC29576E-3DBA-4710-8BC2-65283A40564A} = {3316769C-36DE-46AB-846A-B021A3BCF1DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79C7F90F-EA6F-44D2-80FA-4B379F347BB1}

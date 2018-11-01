@@ -14,7 +14,7 @@ namespace Huanent.Logging.File.Sample
     {
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging(builder => builder.AddFile(o =>
+                .ConfigureLogging(builder => builder.AddSqlite(o =>
                 {
                     o.Path = Path.Combine(AppContext.BaseDirectory, "data", "logs");
                 }))
