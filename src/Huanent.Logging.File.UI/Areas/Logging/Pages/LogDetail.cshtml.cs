@@ -44,7 +44,7 @@ namespace Huanent.Logging.File.UI.Areas.Logging.Pages
             {
                 var log = new LogModel();
                 string[] lines = item.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                if (lines.Length > 0) log.Time = Convert.ToDateTime(lines[0].Replace("-", ""));
+                if (lines.Length > 0) log.Time = Convert.ToDateTime(lines[0].Trim('-', ' '));
                 if (lines.Length > 1)
                 {
                     string[] categoryAndLogLevel = lines[1].Split(':');
