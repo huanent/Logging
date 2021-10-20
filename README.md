@@ -2,7 +2,7 @@
 
 ## Usage
 
-### Huanent.Logging
+### Huanent.Logging.Core
 
 ```
 public class ConsoleLogWriter : ILogWriter

@@ -1,4 +1,4 @@
-﻿using Huanent.Logging;
+﻿using Huanent.Logging.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 

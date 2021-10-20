@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace Huanent.Logging
+namespace Huanent.Logging.Core
 {
     public partial class Logger : ILogger
     {

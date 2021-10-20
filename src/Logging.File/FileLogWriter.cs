@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Huanent.Logging.Core;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.IO;

@@ -1,7 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Huanent.Logging.Core;
+using Microsoft.Extensions.Logging;
 
 namespace Huanent.Logging.File
 {
