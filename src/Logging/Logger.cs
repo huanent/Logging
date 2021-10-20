@@ -1,18 +1,17 @@
-using Huanent.Logging.Abstract;
+﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace Microsoft.Extensions.Logging.Abstract
+namespace Huanent.Logging
 {
-
-    public partial class AbstractLogger : ILogger
+    public partial class Logger : ILogger
     {
         private readonly Func<string, LogLevel, bool> _filter;
         private readonly string _name;
         private readonly ILoggerWriter _loggerWriter;
 
-        public AbstractLogger(string name, Func<string, LogLevel, bool> filter, ILoggerWriter loggerWriter)
+        public Logger(string name, Func<string, LogLevel, bool> filter, ILoggerWriter loggerWriter)
         {
-            _name = string.IsNullOrEmpty(name) ? nameof(AbstractLogger) : name;
+            _name = string.IsNullOrWhiteSpace(name) ? nameof(Logger) : name;
             _filter = filter ?? ((category, logLevel) => true);
             _loggerWriter = loggerWriter;
         }

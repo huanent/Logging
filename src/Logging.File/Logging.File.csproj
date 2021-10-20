@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Huanent.Logging.File</AssemblyName>
+    <RootNamespace>Huanent.Logging.File</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+  </ItemGroup>
+
+</Project>

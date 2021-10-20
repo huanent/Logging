@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Huanent.Logging.Abstract
+namespace Huanent.Logging
 {
     public interface ILoggerWriter
     {
