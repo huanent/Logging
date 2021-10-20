@@ -6,9 +6,9 @@ namespace Microsoft.Extensions.Logging
 {
     public static class LoggerFactoryExtensions
     {
-        public static ILoggingBuilder AddImplementation<T>(this ILoggingBuilder builder) where T : class, ILoggerWriter
+        public static ILoggingBuilder AddImplementation<T>(this ILoggingBuilder builder) where T : class, ILogWriter
         {
-            builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerWriter, T>());
+            builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILogWriter, T>());
             builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerProvider, LoggerProvider>());
             return builder;
         }

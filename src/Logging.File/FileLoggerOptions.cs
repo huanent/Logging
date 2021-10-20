@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Huanent.Logging.File
 {
-    public class FileLogOptions
+    public class FileLoggerOptions
     {
         public string Path { get; set; } = "logs";
         public string DateFormat { get; set; } = "yyyMMdd";

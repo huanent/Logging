@@ -3,7 +3,7 @@ using System;
 
 namespace Huanent.Logging
 {
-    public interface ILoggerWriter
+    public interface ILogWriter
     {
         void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId);
     }

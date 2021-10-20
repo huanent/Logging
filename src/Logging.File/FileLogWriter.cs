@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Huanent.Logging.File
 {
-    public class FileLoggerWriter : ILoggerWriter
+    public class FileLogWriter : ILogWriter
     {
-        readonly FileLogOptions _options;
-        readonly string _prefixPath;
+        private readonly FileLoggerOptions _options;
+        private readonly string _prefixPath;
 
-        public FileLoggerWriter(IOptions<FileLogOptions> options)
+        public FileLogWriter(IOptions<FileLoggerOptions> options)
         {
             _options = options.Value;
             _prefixPath = Path.Combine(AppContext.BaseDirectory, _options.Path);
@@ -20,14 +20,13 @@ namespace Huanent.Logging.File
 
         public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
         {
-            var fileName = $"{DateTimeOffset.UtcNow:yyyMMdd}.txt";
+            var fileName = $"{DateTimeOffset.UtcNow.ToString(_options.DateFormat)}.txt";
             var path = Path.Combine(_prefixPath, fileName);
             var logBuilder = new StringBuilder();
-            var spliter = $"---------------[{name}] [{level}] [{eventId}] [{DateTimeOffset.UtcNow}]---------------";
+            var spliter = $"[{level}] [{name}] [{eventId}] [{DateTimeOffset.UtcNow}]";
             logBuilder.AppendLine(spliter);
             logBuilder.AppendLine(message);
             if (exception != default) logBuilder.AppendLine(exception.ToString());
-            logBuilder.AppendLine(spliter);
             logBuilder.AppendLine(Environment.NewLine);
             System.IO.File.AppendAllText(path, logBuilder.ToString());
         }

@@ -8,7 +8,7 @@ namespace Huanent.Logging.File
     [ProviderAlias("File")]
     public class FileLoggerProvider : LoggerProvider
     {
-        public FileLoggerProvider(ILoggerWriter loggerWriter) : base(loggerWriter)
+        public FileLoggerProvider(ILogWriter loggerWriter) : base(loggerWriter)
         {
         }
     }

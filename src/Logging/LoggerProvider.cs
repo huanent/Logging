@@ -7,14 +7,14 @@ namespace Huanent.Logging
     public class LoggerProvider : ILoggerProvider
     {
         private readonly Func<string, LogLevel, bool> _filter;
-        readonly ILoggerWriter _loggerWriter;
+        private readonly ILogWriter _loggerWriter;
 
-        public LoggerProvider(ILoggerWriter loggerWriter)
+        public LoggerProvider(ILogWriter loggerWriter)
         {
             _loggerWriter = loggerWriter;
         }
 
-        public LoggerProvider(Func<string, LogLevel, bool> filter, ILoggerWriter loggerWriter)
+        public LoggerProvider(Func<string, LogLevel, bool> filter, ILogWriter loggerWriter)
             : this(loggerWriter)
         {
             _filter = filter;

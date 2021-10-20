@@ -7,19 +7,16 @@ namespace Huanent.Logging
     {
         private readonly Func<string, LogLevel, bool> _filter;
         private readonly string _name;
-        private readonly ILoggerWriter _loggerWriter;
+        private readonly ILogWriter _loggerWriter;
 
-        public Logger(string name, Func<string, LogLevel, bool> filter, ILoggerWriter loggerWriter)
+        public Logger(string name, Func<string, LogLevel, bool> filter, ILogWriter loggerWriter)
         {
             _name = string.IsNullOrWhiteSpace(name) ? nameof(Logger) : name;
             _filter = filter ?? ((category, logLevel) => true);
             _loggerWriter = loggerWriter;
         }
 
-        public IDisposable BeginScope<TState>(TState state)
-        {
-            return NoopDisposable.Instance;
-        }
+        public IDisposable BeginScope<TState>(TState state) => NoopDisposable.Instance;
 
         public bool IsEnabled(LogLevel logLevel) => _filter(_name, logLevel);
 

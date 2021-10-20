@@ -8,11 +8,11 @@ namespace Microsoft.Extensions.Logging
 {
     public static class FileLoggerFactoryExtensions
     {
-        public static ILoggingBuilder AddFile(this ILoggingBuilder builder, Action<FileLogOptions> options)
+        public static ILoggingBuilder AddFile(this ILoggingBuilder builder, Action<FileLoggerOptions> options = null)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
-            builder.Services.Configure(options);
-            builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerWriter, FileLoggerWriter>());
+            builder.Services.AddOptions<FileLoggerOptions>();
+            if (options != default) builder.Services.Configure(options);
+            builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILogWriter, FileLogWriter>());
             builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerProvider, FileLoggerProvider>());
             return builder;
         }
