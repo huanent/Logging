@@ -1,13 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Huanent.Logging.File</AssemblyName>
-    <RootNamespace>Huanent.Logging.File</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>Huanent.Logging.File</AssemblyName>
+		<RootNamespace>Huanent.Logging.File</RootNamespace>
+		<Authors>Huanent</Authors>
+		<PackageProjectUrl>https://github.com/huanent/Logging</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/huanent/Logging.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Logging File</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>3.0.0</Version>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Logging\Logging.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Logging\Logging.csproj" />
+	</ItemGroup>
 
 </Project>

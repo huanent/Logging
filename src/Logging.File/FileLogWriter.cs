@@ -27,7 +27,7 @@ namespace Huanent.Logging.File
             logBuilder.AppendLine(spliter);
             logBuilder.AppendLine(message);
             if (exception != default) logBuilder.AppendLine(exception.ToString());
-            logBuilder.AppendLine(Environment.NewLine);
+            logBuilder.AppendLine();
             System.IO.File.AppendAllText(path, logBuilder.ToString());
         }
     }

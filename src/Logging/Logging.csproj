@@ -1,13 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Huanent.Logging</AssemblyName>
-    <RootNamespace>Huanent.Logging</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>Huanent.Logging</AssemblyName>
+		<RootNamespace>Huanent.Logging</RootNamespace>
+		<Authors>Huanent</Authors>
+		<PackageProjectUrl>https://github.com/huanent/Logging</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/huanent/Logging.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Logging</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.0</Version>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>

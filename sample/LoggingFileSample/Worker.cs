@@ -21,7 +21,7 @@ namespace LoggingFileSample
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogDebug("Worker running at: {time}", DateTimeOffset.Now);
+                _logger.LogError(new Exception("error"), "Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
             }
         }
