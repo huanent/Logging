@@ -1,4 +1,8 @@
 # Microsoft.Extensions.Logging extensions
+## Install
+![Nuget](https://img.shields.io/nuget/v/Huanent.Logging.Core?label=Core&style=for-the-badge)
+![Nuget](https://img.shields.io/nuget/v/Huanent.Logging.File?label=File&style=for-the-badge)
+
 
 ## Usage
 
