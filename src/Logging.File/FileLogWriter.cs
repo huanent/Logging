@@ -16,7 +16,7 @@ namespace Huanent.Logging.File
         {
             _options = options.Value;
             _prefixPath = Path.Combine(AppContext.BaseDirectory, _options.Path);
-            if (!Directory.Exists(_prefixPath)) Directory.CreateDirectory(_prefixPath);
+            CreateDirectory();
         }
 
         public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
@@ -29,7 +29,25 @@ namespace Huanent.Logging.File
             logBuilder.AppendLine(message);
             if (exception != default) logBuilder.AppendLine(exception.ToString());
             logBuilder.AppendLine();
-            System.IO.File.AppendAllText(path, logBuilder.ToString());
+            WriteLogToFile(path, logBuilder.ToString());
+        }
+
+        private void WriteLogToFile(string path, string log)
+        {
+            try
+            {
+                System.IO.File.AppendAllText(path, log);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                CreateDirectory();
+                System.IO.File.AppendAllText(path, log);
+            }
+        }
+
+        private void CreateDirectory()
+        {
+            if (!Directory.Exists(_prefixPath)) Directory.CreateDirectory(_prefixPath);
         }
     }
 }
