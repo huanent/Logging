@@ -14,6 +14,7 @@ namespace Microsoft.Extensions.Logging
             if (options != default) builder.Services.Configure(options);
             builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILogWriter, SqliteLogWriter>());
             builder.Services.TryAddEnumerable(ServiceDescriptor.Singleton<ILoggerProvider, SqliteLoggerProvider>());
+            builder.Services.AddSingleton<SqliteLoggerRepository>();
             return builder;
         }
     }

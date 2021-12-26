@@ -7,17 +7,26 @@ namespace Huanent.Logging.Sqlite
     {
         public SqliteLog(LogLevel level, string message, string name, Exception exception)
         {
-            Level = (int) level;
+            Level = level;
             Message = message;
             Name = name;
             Exception = exception?.ToString();
-            Timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            DateTime = DateTimeOffset.UtcNow;
         }
 
-        public int Level { get; }
+        internal SqliteLog(long level, string message, string name, string exception, long dateTime)
+        {
+            Level = (LogLevel) level;
+            Message = message;
+            Name = name;
+            Exception = exception;
+            DateTime = DateTimeOffset.Now;
+        }
+
+        public LogLevel Level { get; }
         public string Message { get; }
         public string Name { get; }
         public string Exception { get; }
-        public long Timestamp { get; }
+        public DateTimeOffset DateTime { get; }
     }
 }
