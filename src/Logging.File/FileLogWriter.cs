@@ -31,17 +31,22 @@ namespace Huanent.Logging.File
             logBuilder.AppendLine();
             WriteLogToFile(path, logBuilder.ToString());
         }
-
+        static ReaderWriterLockSlim LogWriteLock = new ReaderWriterLockSlim();
         private void WriteLogToFile(string path, string log)
         {
             try
             {
+                LogWriteLock.EnterWriteLock();
                 System.IO.File.AppendAllText(path, log);
             }
             catch (DirectoryNotFoundException)
             {
                 CreateDirectory();
                 System.IO.File.AppendAllText(path, log);
+            }
+            finally
+            {
+                LogWriteLock.ExitWriteLock();
             }
         }
 
