@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Huanent.Logging.File
 {
