@@ -1,6 +1,6 @@
 # Microsoft.Extensions.Logging extensions
 ## Install
-[![Nuget](https://img.shields.io/nuget/v/Huanent.Logging.Core?label=Core&style=for-the-badge)](https://www.nuget.org/packages/Huanent.Logging.Core/1.0.0)
+[![Nuget](https://img.shields.io/nuget/v/Huanent.Logging.Core?label=Core&style=for-the-badge)](https://www.nuget.org/packages/Huanent.Logging.Core/)
 [![Nuget](https://img.shields.io/nuget/v/Huanent.Logging.File?label=File&style=for-the-badge)](https://www.nuget.org/packages/Huanent.Logging.File/)
 
 

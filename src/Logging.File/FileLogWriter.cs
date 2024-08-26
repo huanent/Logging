@@ -2,58 +2,60 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Text;
 using System.Threading;
 
-namespace Huanent.Logging.File
+namespace Huanent.Logging.File;
+
+public class FileLogWriter : ILogWriter
 {
-    public class FileLogWriter : ILogWriter
+    private readonly FileLoggerOptions options;
+    private readonly string prefixPath;
+    private readonly static ConcurrentQueue<Log> queue = new();
+    private static uint writing = 0;
+
+    record Log(string FilePath, LogLevel Level, string Message, string Name, Exception Exception, EventId EventId);
+
+    public FileLogWriter(IOptions<FileLoggerOptions> options)
     {
-        private readonly FileLoggerOptions _options;
-        private readonly string _prefixPath;
+        this.options = options.Value;
+        prefixPath = Path.Combine(AppContext.BaseDirectory, this.options.Path);
+    }
 
-        public FileLogWriter(IOptions<FileLoggerOptions> options)
+    public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
+    {
+        var fileName = $"{DateTimeOffset.UtcNow.ToString(options.DateFormat)}.txt";
+        var path = Path.Combine(prefixPath, fileName);
+        queue.Enqueue(new Log(path, level, message, name, exception, eventId));
+
+        if (Interlocked.Exchange(ref writing, 1) == 0)
         {
-            _options = options.Value;
-            _prefixPath = Path.Combine(AppContext.BaseDirectory, _options.Path);
-            CreateDirectory();
+            WriteLog();
+            Interlocked.Exchange(ref writing, 0);
         }
+    }
 
-        public void WriteLog(LogLevel level, string message, string name, Exception exception, EventId eventId)
+    private static void WriteLog()
+    {
+        while (queue.TryDequeue(out var log))
         {
-            var fileName = $"{DateTimeOffset.UtcNow.ToString(_options.DateFormat)}.txt";
-            var path = Path.Combine(_prefixPath, fileName);
             var logBuilder = new StringBuilder();
-            var spliter = $"[{level}] [{name}] [{eventId}] [{DateTimeOffset.UtcNow}]";
-            logBuilder.AppendLine(spliter);
-            logBuilder.AppendLine(message);
-            if (exception != default) logBuilder.AppendLine(exception.ToString());
+            var splitter = $"[{log.Level}] [{log.Name}] [{log.EventId}] [{DateTimeOffset.UtcNow}]";
+            logBuilder.AppendLine(splitter);
+            logBuilder.AppendLine(log.Message);
+            if (log.Exception != default) logBuilder.AppendLine(log.Exception.ToString());
             logBuilder.AppendLine();
-            WriteLogToFile(path, logBuilder.ToString());
-        }
-        static ReaderWriterLockSlim LogWriteLock = new ReaderWriterLockSlim();
-        private void WriteLogToFile(string path, string log)
-        {
-            try
-            {
-                LogWriteLock.EnterWriteLock();
-                System.IO.File.AppendAllText(path, log);
-            }
-            catch (DirectoryNotFoundException)
-            {
-                CreateDirectory();
-                System.IO.File.AppendAllText(path, log);
-            }
-            finally
-            {
-                LogWriteLock.ExitWriteLock();
-            }
-        }
+            var folder = Path.GetDirectoryName(log.FilePath);
 
-        private void CreateDirectory()
-        {
-            if (!Directory.Exists(_prefixPath)) Directory.CreateDirectory(_prefixPath);
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            System.IO.File.AppendAllText(log.FilePath, logBuilder.ToString());
         }
     }
 }
+

@@ -4,25 +4,20 @@ using System;
 namespace Huanent.Logging.Core
 {
     [ProviderAlias("Implementation")]
-    public class LoggerProvider : ILoggerProvider
+    public class LoggerProvider(ILogWriter loggerWriter) : ILoggerProvider
     {
-        private readonly Func<string, LogLevel, bool> _filter;
-        private readonly ILogWriter _loggerWriter;
-
-        public LoggerProvider(ILogWriter loggerWriter)
-        {
-            _loggerWriter = loggerWriter;
-        }
+        private readonly Func<string, LogLevel, bool> filter;
+        private readonly ILogWriter _loggerWriter = loggerWriter;
 
         public LoggerProvider(Func<string, LogLevel, bool> filter, ILogWriter loggerWriter)
             : this(loggerWriter)
         {
-            _filter = filter;
+            this.filter = filter;
         }
 
         public ILogger CreateLogger(string name)
         {
-            return new Logger(name, _filter, _loggerWriter);
+            return new Logger(name, filter, _loggerWriter);
         }
 
         public void Dispose()

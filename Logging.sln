@@ -13,11 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{9BCD75
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging.Core", "src\Logging.Core\Logging.Core.csproj", "{0D9AEC9E-E3FA-4DDF-AE55-AFB6FFCE96B6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{863736A3-33D9-452C-B189-754C86A4A78B}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.CoreSample", "sample\Logging.CoreSample\Logging.CoreSample.csproj", "{D9FD5F6B-DD6D-4B2B-9176-ACF350CD59C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging.FileSample", "sample\Logging.FileSample\Logging.FileSample.csproj", "{269FA124-15C5-4E76-9D6A-D634DC39AD7C}"
