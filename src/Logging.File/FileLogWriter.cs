@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Huanent.Logging.File;
 
@@ -32,12 +33,11 @@ public class FileLogWriter : ILogWriter
 
         if (Interlocked.Exchange(ref writing, 1) == 0)
         {
-            WriteLog();
-            Interlocked.Exchange(ref writing, 0);
+            _ = WriteLogAsync();
         }
     }
 
-    private static void WriteLog()
+    private static async Task WriteLogAsync()
     {
         while (queue.TryDequeue(out var log))
         {
@@ -54,8 +54,10 @@ public class FileLogWriter : ILogWriter
                 Directory.CreateDirectory(folder);
             }
 
-            System.IO.File.AppendAllText(log.FilePath, logBuilder.ToString());
+            await System.IO.File.AppendAllTextAsync(log.FilePath, logBuilder.ToString());
         }
+
+        Interlocked.Exchange(ref writing, 0);
     }
 }
 
